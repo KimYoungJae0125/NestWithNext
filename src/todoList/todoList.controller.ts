@@ -10,17 +10,17 @@ export class TodoListController {
 
     @Render('todoList')
     @Get()
-    todoList(): TodoListEntity[] {
-        const todos = this.todoListService.getTodos();
-        return todos;
+    todoList(): Promise<TodoListEntity[]> {
+        console.log("nest.test");
+        console.log(this.todoListService.findAll());
+        console.log("nest.test");
+        return this.todoListService.findAll();
     }
 
     @Post()
-    insertTodoList(@Body() todotodo : TodoListEntity): string {
+    insertTodoList(@Body() todoListData : TodoListEntity): Promise<TodoListEntity> {
 
-        this.todoListService.insertTodos(todotodo);
-
-        return "axiosHiddd";
+        return this.todoListService.insertTodos(todoListData);
     }
 
 }

@@ -6,7 +6,7 @@ function TodoList( {todos}) {
                             (todo) => (
                                     TodoListItem(
                                         todo = {todo}
-//                                          key {todo.id}
+                                          //key = {todo.id}
                                          )
                                          )
                                      )
@@ -22,7 +22,7 @@ function TodoListItem( { todo } )
                    return (
                    <>
                       <li>
-                        <div>{text}</div>
+                        <div key = {todo.id}>{text}</div>
                       </li>
                    </>)
                    };

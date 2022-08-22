@@ -10,20 +10,17 @@ export class TodoListService {
         @InjectRepository(TodoListEntity)
         private todoListRepository: Repository<TodoListEntity>
     ) {}
-    private todoLists = [
-        new TodoListEntity(1, 'test')
-      , new TodoListEntity(2, 'test2')
-      , new TodoListEntity(3, 'test3')
-    ]
 
-    getTodos(): TodoListEntity[] {
-        return this.todoLists;
+    findAll = () : Promise<TodoListEntity[]> => {
+        return this.todoListRepository.find();
     }
 
-    async insertTodos(todotodo : TodoListEntity) {
-        console.log("nest.js")
-        console.log(todotodo)
-        await this.todoListRepository.save(todotodo);
+    findOne = ({id}) : Promise<TodoListEntity> => {
+        return this.todoListRepository.findOne({ id });
+    }
+
+    insertTodos = async (todoListData : TodoListEntity) => {
+        return this.findOne(await this.todoListRepository.save(todoListData));
     }
 
 }
