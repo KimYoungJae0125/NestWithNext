@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
+import Styles from "../../styles/TodoListInput.module.scss";
+
 
 const TodoInsert = (props) => {
     const [text, setText] = useState("");
@@ -9,8 +11,10 @@ const TodoInsert = (props) => {
                             .then(setText(""));
     return (
         <>
-            <input type="text" value={text} placeholder="할 일을 입력하세요." onChange={textTyping} />
-            <button type="button" onClick={insertTodo}>확인</button>
+            <div className={Styles.inputContainer}>
+                <input type="text" value={text} placeholder="할 일을 입력하세요." onChange={textTyping} />
+                <button type="button" onClick={insertTodo}>확인</button>
+            </div>
         </>
     )
 }

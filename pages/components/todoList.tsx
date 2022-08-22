@@ -1,9 +1,11 @@
 import axios from 'axios';
+import Styles from "../../styles/TodoList.module.scss";
+
 
 const TodoList = ( props ) => {
                return (
                <>
-               <ul>
+               <ul className={Styles.todoContainer}>
                  {  props.todos?.map(
                             (todo) => (
                                     TodoListItem(
@@ -27,10 +29,11 @@ const TodoListItem = ( props ) =>
                                                  .then(response => props.listDelete(Number(response.data.id)));
                    return (
                    <>
-                      <li>
-                        <div>{text}</div>
-                        <div>수정</div>
-                        <div onClick={listDelete}>삭제</div>
+                      <li style={{display : "flex", justifyContent: "space-between" }}>
+                        <input type="checkbox" />
+                        <div><span>{text}</span></div>
+                        <div><span>수정</span></div>
+                        <div onClick={listDelete}><span>삭제</span></div>
                       </li>
                    </>)
                    };

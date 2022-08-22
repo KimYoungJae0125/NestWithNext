@@ -1,0 +1,18 @@
+.inputContainer {
+    width: 80%;
+    margin: 0 auto;
+    > input {
+        width: 85%;
+        height: 30px;
+        border-radius: 5px 0px 0px 5px;
+    }
+    > button {
+        width: 13%;
+        height: 37px;
+        border-radius: 0px 5px 5px 0px;
+        background-color: white;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

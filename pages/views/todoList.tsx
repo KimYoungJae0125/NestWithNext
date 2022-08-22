@@ -3,6 +3,7 @@ import { NextPageContext } from 'next';
 import { TodoInsert } from '../components/todoListInput';
 import { TodoList } from '../components/todoList';
 import Head from 'next/head';
+import Styles from "../../styles/Home.module.scss";
 
 
 type IndexProps = {
@@ -25,11 +26,13 @@ const listDelete = (id) => setTodos(todos.filter(todoItem => todoItem.id !== id)
 return (
     <>
         <Head><title>{title}</title></Head>
-        <div>
-            타이틀은 {title} 입니다.
+        <div className={Styles.container}>
+            <div className={Styles.test} style={{textAlign: "center"}}>
+                {title}
+            </div>
+            <TodoInsert listInsert={listInsert} />
+            <TodoList todos={todos} listDelete={listDelete}/>
         </div>
-        <TodoInsert listInsert={listInsert} />
-        <TodoList todos={todos} listDelete={listDelete}/>
      </>
     )
 }
