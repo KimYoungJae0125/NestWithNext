@@ -25,10 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/views/Index": [
+    "/views/todoList": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/views/Index.js"
+      "static/chunks/pages/views/todoList.js"
     ]
   },
   "ampFirstPages": []

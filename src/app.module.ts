@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import Next from 'next';
 import { RenderModule } from 'nest-next';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { TodoListModule } from './todoList/todoList.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
                                         dev: process.env.NODE_ENV !== 'production'
                                         })),
        TypeOrmModule.forRoot(),
+       TodoListModule
   ],
   controllers: [AppController],
   providers: [AppService],
