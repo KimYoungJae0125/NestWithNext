@@ -1,4 +1,4 @@
-import {Controller, Get, Post, Render, Body} from "@nestjs/common";
+import {Controller, Get, Post, Delete, Render, Body, Param} from "@nestjs/common";
 import {TodoListService} from "./todoList.service";
 import {TodoListEntity} from "./todoList.entity";
 
@@ -21,6 +21,13 @@ export class TodoListController {
     insertTodoList(@Body() todoListData : TodoListEntity): Promise<TodoListEntity> {
 
         return this.todoListService.insertTodos(todoListData);
+    }
+
+    @Delete(':id')
+    deleteTodoList(@Param("id") id: number) {
+        console.log("id :", id)
+        this.todoListService.deleteTodos(id);
+        return {id};
     }
 
 }

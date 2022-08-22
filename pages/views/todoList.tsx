@@ -20,6 +20,7 @@ const [todos, setTodos] = useState( props.query != null ? Object.values(props.qu
 console.log("todos : ", todos);
 
 const listInsert = (data) => setTodos(todos.concat(data));
+const listDelete = (id) => setTodos(todos.filter(todoItem => todoItem.id !== id));
 
 return (
     <>
@@ -28,7 +29,7 @@ return (
             타이틀은 {title} 입니다.
         </div>
         <TodoInsert listInsert={listInsert} />
-        <TodoList todos={todos}/>
+        <TodoList todos={todos} listDelete={listDelete}/>
      </>
     )
 }

@@ -1,11 +1,14 @@
-function TodoList( {todos}) {
+import axios from 'axios';
+
+const TodoList = ( props ) => {
                return (
                <>
                <ul>
-                 {  todos?.map(
+                 {  props.todos?.map(
                             (todo) => (
                                     TodoListItem(
-                                        todo = {todo}
+                                        { todo
+                                      ,  listDelete: props.listDelete}
                                           //key = {todo.id}
                                          )
                                          )
@@ -16,13 +19,18 @@ function TodoList( {todos}) {
                  )
              };
 
-function TodoListItem( { todo } )
+const TodoListItem = ( props ) =>
                    {
-                   const { id, text, checked } = todo;
+                   const { id, text, checked } = props.todo;
+//                   const listDelete = () => props.listDelete(id);
+                   const listDelete = () => axios.delete(location.origin + "/todoList/" + id)
+                                                 .then(response => props.listDelete(Number(response.data.id)));
                    return (
                    <>
                       <li>
-                        <div key = {todo.id}>{text}</div>
+                        <div>{text}</div>
+                        <div>수정</div>
+                        <div onClick={listDelete}>삭제</div>
                       </li>
                    </>)
                    };

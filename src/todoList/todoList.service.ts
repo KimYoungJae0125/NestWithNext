@@ -23,4 +23,8 @@ export class TodoListService {
         return this.findOne(await this.todoListRepository.save(todoListData));
     }
 
+    deleteTodos = async (id : number) => {
+        this.todoListRepository.delete(id);
+    }
+
 }
