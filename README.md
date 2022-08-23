@@ -56,6 +56,9 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
+
+# e2e tests(Next.js with cypress)
+$ npm run test:cy
 ```
 
 ## Support
@@ -82,3 +85,6 @@ https://docs.nestjs.com/
 
 ### typeOrm
 https://typeorm.biunav.com/en/connection-options.html
+
+### Cypress
+https://docs.cypress.io/guides/

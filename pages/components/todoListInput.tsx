@@ -12,8 +12,8 @@ const TodoInsert = (props) => {
     return (
         <>
             <div className={Styles.inputContainer}>
-                <input type="text" value={text} placeholder="할 일을 입력하세요." onChange={textTyping} />
-                <button type="button" onClick={insertTodo}>확인</button>
+                <input id="inputTodoList" type="text" value={text} placeholder="할 일을 입력하세요." onChange={textTyping} />
+                <button id="addTodoList" type="button" onClick={insertTodo}>확인</button>
             </div>
         </>
     )
